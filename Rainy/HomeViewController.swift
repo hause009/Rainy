@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  Rainy
 //
 //  Created by Alex on 17.10.16.
@@ -11,9 +11,8 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 import AlamofireImage
-//import Contacts
 
-class CurrentViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController {
     
     @IBOutlet weak var Image: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -26,38 +25,32 @@ class CurrentViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     var manager:CLLocationManager!
-    var locCoord : CLLocationCoordinate2D!
-    var latitude = 0.0000
-    var longitude = 0.000
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        
         manager = CLLocationManager()
-        manager.delegate = self
+        //manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.startUpdatingLocation()
-
-       
+        
+        
         let headers = [
             "X-API-KEY": Constants.apiKey,
             "Content-Type": "application/x-www-form-urlencoded"
         ]
-        //Alamofire.request("http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139", headers: headers).responseJSON { response in
-        let strLatitude:String = String (latitude)
-        let strLongitude:String = String (longitude)
-        
-        Alamofire.request("http://api.openweathermap.org/data/2.5/weather?lat=\(strLatitude)&lon=\(strLongitude)", headers: headers).responseJSON { response in
-         
-//            if let JSON = response.result.value {
-//                //print("JSON: \(JSON)")
-//            }
+        //http://api.openweathermap.org/data/2.5/weather?q=London
+        Alamofire.request("http://api.openweathermap.org/data/2.5/weather?q=London", headers: headers).responseJSON { response in
+            
+            //            if let JSON = response.result.value {
+            //                //print("JSON: \(JSON)")
+            //            }
             
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
                 print("JSON=: \(json)")
-
+                
                 var temp = json["main"]["temp"].doubleValue
                 temp = temp - 273.15
                 let tempSt: String = String(format:"%.1f", temp)
@@ -101,16 +94,8 @@ class CurrentViewController: UIViewController, CLLocationManagerDelegate {
         }
         
     }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        //locCoord = locValue
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        latitude = locValue.latitude
-        longitude = locValue.longitude
-    }
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

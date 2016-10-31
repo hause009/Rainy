@@ -10,7 +10,7 @@
 		C2DCAA6E1DBD36FE001DC29F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DCAA6D1DBD36FE001DC29F /* Constants.swift */; };
 		C2DDC01E1DB53A7400F55DFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DDC01D1DB53A7400F55DFB /* AppDelegate.swift */; };
 		C2DDC0201DB53A7400F55DFB /* CurrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DDC01F1DB53A7400F55DFB /* CurrentViewController.swift */; };
-		C2DDC0221DB53A7400F55DFB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DDC0211DB53A7400F55DFB /* SecondViewController.swift */; };
+		C2DDC0221DB53A7400F55DFB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DDC0211DB53A7400F55DFB /* HomeViewController.swift */; };
 		C2DDC0251DB53A7500F55DFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DDC0231DB53A7500F55DFB /* Main.storyboard */; };
 		C2DDC0271DB53A7600F55DFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DDC0261DB53A7600F55DFB /* Assets.xcassets */; };
 		C2DDC02A1DB53A7600F55DFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DDC0281DB53A7600F55DFB /* LaunchScreen.storyboard */; };
@@ -24,7 +24,7 @@
 		C2DDC01A1DB53A7400F55DFB /* Rainy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rainy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DDC01D1DB53A7400F55DFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2DDC01F1DB53A7400F55DFB /* CurrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewController.swift; sourceTree = "<group>"; };
-		C2DDC0211DB53A7400F55DFB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C2DDC0211DB53A7400F55DFB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C2DDC0241DB53A7500F55DFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2DDC0261DB53A7600F55DFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2DDC0291DB53A7600F55DFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 				C2DDC01D1DB53A7400F55DFB /* AppDelegate.swift */,
 				C2DCAA6D1DBD36FE001DC29F /* Constants.swift */,
 				C2DDC01F1DB53A7400F55DFB /* CurrentViewController.swift */,
-				C2DDC0211DB53A7400F55DFB /* SecondViewController.swift */,
+				C2DDC0211DB53A7400F55DFB /* HomeViewController.swift */,
 				C2DDC0311DB5412000F55DFB /* WeatherForecast.swift */,
 				C2DDC0231DB53A7500F55DFB /* Main.storyboard */,
 				C2DDC0261DB53A7600F55DFB /* Assets.xcassets */,
@@ -221,7 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2DCAA6E1DBD36FE001DC29F /* Constants.swift in Sources */,
-				C2DDC0221DB53A7400F55DFB /* SecondViewController.swift in Sources */,
+				C2DDC0221DB53A7400F55DFB /* HomeViewController.swift in Sources */,
 				C2DDC01E1DB53A7400F55DFB /* AppDelegate.swift in Sources */,
 				C2DDC0201DB53A7400F55DFB /* CurrentViewController.swift in Sources */,
 				C2DDC0321DB5412000F55DFB /* WeatherForecast.swift in Sources */,
@@ -347,6 +347,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Rainy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CalculatorDemo.Rainy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -360,6 +361,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Rainy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CalculatorDemo.Rainy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
