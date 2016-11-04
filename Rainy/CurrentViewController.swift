@@ -38,7 +38,11 @@ class CurrentViewController: UIViewController, CLLocationManagerDelegate {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.startUpdatingLocation()
 
-       
+        let objectApi = WeatherForecast()
+        
+        //var testObject
+        self.testFunc()
+        
         let headers = [
             "X-API-KEY": Constants.apiKey,
             "Content-Type": "application/x-www-form-urlencoded"
@@ -57,43 +61,17 @@ class CurrentViewController: UIViewController, CLLocationManagerDelegate {
             case .success(let value):
                 let json = JSON(value)
                 print("JSON=: \(json)")
+                
+                objectApi.requstApi(json: json)
 
-                var temp = json["main"]["temp"].doubleValue
-                temp = temp - 273.15
-                let tempSt: String = String(format:"%.1f", temp)
+                let tempSt: String = String(format:"%.1f", objectApi.currentWearthrTemperature)
                 self.tempLabel.text = "Temperature: " + tempSt + " C"
                 
-                print ("--------------: \(temp)")
-                
-                let speed = json["wind"]["speed"].doubleValue
-                let speedSt = String(format:"%.1f", speed)
-                //self.dopLabel.text = String(format:"%.1f", speed)
+                let speedSt = String(format:"%.1f", objectApi.speedWind)
                 self.dopLabel.text = "Wind speed: " + speedSt + " m"
-                print ("--------------: \(speed)")
-                
-                
-                let humidity = json["main"]["humidity"].stringValue
-                print ("--------------: \(humidity)")
-                
-                //let description
-                let list: Array<JSON> = json["weather"].arrayValue
-                print ("--------------: \(list[0])")
-                let weather = list[0].dictionary!
-                print ("--------------: \(weather)")
-                
-                let description = weather["description"]?.stringValue
-                let name : String = json["name"].stringValue
-                self.descriptionLabel.text = name + " " + description!
-                print ("description= \(description)")
-                
-                var icon = weather["icon"]?.stringValue
-                icon = "http://openweathermap.org/img/w/" + icon! + ".png"
-                //http://openweathermap.org/img/w/10d.png
-                //let downloadURL = NSURL(string:
-                self.Image.af_setImage(withURL: NSURL(string:icon!) as! URL)
-                print ("icon= \(icon)")//.png
-                
-                
+                self.descriptionLabel.text = objectApi.nameСity + " " + objectApi.descriptionWearthr
+                self.Image.af_setImage(withURL: NSURL(string:objectApi.iconStr) as! URL)
+
             case .failure(let error):
                 print(error)
             }
@@ -117,5 +95,11 @@ class CurrentViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 }
-
+// MARK: - Update Model
+extension CurrentViewController{
+   
+    func testFunc() {
+         print ("open")
+    }
+}
 
